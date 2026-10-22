@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Achtergrond gradient: diep blauw naar donker -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a7fb5"/>
+      <stop offset="100%" stop-color="#2c3e50"/>
+    </linearGradient>
+
+    <!-- Leiding gradient: warm (oranje) → wit → koel (blauw) -->
+    <linearGradient id="pipe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#ffab91"/>
+      <stop offset="50%"  stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#90caf9"/>
+    </linearGradient>
+
+    <!-- Schaduw onder de leiding -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+
+    <!-- Glans op de achtergrond -->
+    <linearGradient id="gloss" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Afgeronde vierkante achtergrond -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Subtiele glans bovenaan -->
+  <rect width="512" height="220" rx="112" fill="url(#gloss)"/>
+
+  <!-- Serpentine leiding (4 passes) -->
+  <path d="M 96 144
+           H 416
+           Q 440 144 440 168
+           V 200
+           Q 440 224 416 224
+           H 96
+           Q 72 224 72 248
+           V 280
+           Q 72 304 96 304
+           H 416
+           Q 440 304 440 328
+           V 360
+           Q 440 384 416 384
+           H 96"
+        fill="none"
+        stroke="url(#pipe)"
+        stroke-width="34"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#shadow)"/>
+
+  <!-- Aansluitpunt aanvoer (warm) -->
+  <circle cx="96" cy="144" r="24" fill="#ff6b6b" stroke="#ffffff" stroke-width="5"/>
+  <circle cx="96" cy="144" r="10" fill="#ffab91"/>
+
+  <!-- Aansluitpunt retour (koel) -->
+  <circle cx="96" cy="384" r="24" fill="#4a9eff" stroke="#ffffff" stroke-width="5"/>
+  <circle cx="96" cy="384" r="10" fill="#90caf9"/>
+</svg>
